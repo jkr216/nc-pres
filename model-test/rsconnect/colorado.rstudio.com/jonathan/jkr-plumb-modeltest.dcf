@@ -1,0 +1,13 @@
+name: jkr-plumb-modeltest
+title: jkr-plumb-modeltest
+username: jonathan
+account: jonathan
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 2258
+bundleId: 25390
+url: https://colorado.rstudio.com:443/rsc/jonathan/api-model/
+when: 1553525609.78802
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: build model.nb.html|build model.Rmd

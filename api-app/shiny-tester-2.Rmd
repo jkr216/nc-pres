@@ -1,0 +1,70 @@
+---
+title: "Tester"
+resource_files:
+- config.yml
+runtime: shiny
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    source_code: embed
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+library(httr)
+base_url <- config::get("base_url")
+```
+
+input stuff {.sidebar}
+========================================
+
+```{r}
+sliderInput("hp", 
+            "Horsepower", 
+            min = min(mtcars$hp), 
+            max = max(mtcars$hp),
+            value = median(mtcars$hp))
+
+            
+selectInput("cyl",
+            "Cylinder",
+            choices = sort(unique(mtcars$cyl)),
+            selected = sort(unique(mtcars$cyl))[1])
+
+actionButton("add",
+             "go")
+              
+```
+
+Probability of Churn
+==============================================
+
+```{r}
+
+```
+Row 1
+--------------------------------------------
+
+### Table
+
+
+```{r}
+renderTable({
+  
+  body <- data.frame(hp = as.numeric(input$hp),
+                 cyl = as.numeric(input$cyl))
+  
+    
+  api_result <- POST("https://colorado.rstudio.com/rsc/jonathan/api-model/predict", 
+              body = body, 
+              encode = "json")
+
+  results <- httr::content(api_result, as = "text", encoding = "UTF-8")
+  
+  results
+})
+```
+
+
+

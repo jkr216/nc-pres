@@ -1,0 +1,12 @@
+name: shiny-api-tester
+title: shiny-api-tester
+username: jonathan
+account: jonathan
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 2259
+bundleId: 25397
+url: https://colorado.rstudio.com:443/rsc/content/2259/
+when: 1553536953.9407
+asMultiple: FALSE
+asStatic: FALSE
